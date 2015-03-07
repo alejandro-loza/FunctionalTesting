@@ -1,0 +1,13 @@
+apply plugin:'groovy'
+
+repositories{
+  jcenter()
+}
+
+ext.drivers = ['firefox','chrome','explorer']
+
+
+task wrapper(type: Wrapper){
+  gradleVersion = '2.3'
+}
+
