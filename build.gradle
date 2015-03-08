@@ -12,7 +12,6 @@ repositories{
   jcenter()
 }
 
-
 dependencies{
   testCompile "org.gebish:geb-spock:${gebVersion}" 
   testCompile "org.spockframework:spock-core:1.0-groovy-2.3"
@@ -40,6 +39,11 @@ drivers.each{ driver ->
 
 chromeTest{
   systemProperty "webdriver.chrome.driver","${System.properties["user.home"]}/.grails/chromedriver"
+}
+
+test{
+  dependsOn drivers.collect{  task["${it}Test"] }
+  enabled = false
 }
 
 task wrapper(type: Wrapper){
