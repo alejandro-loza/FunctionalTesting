@@ -19,8 +19,8 @@ dependencies{
   testCompile "org.gebish:geb-junit4:${gebVersion}"  
   
 
-  testCompile "org.selenium.selenium:selenium-chrome-driver:${seleniumVersion}"
-  testCompile "org.selenium.selenium:selenium-firefox-driver:${seleniumVersion}" 
+  testCompile "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumVersion}"
+  testCompile "org.seleniumhq.selenium:selenium-firefox-driver:${seleniumVersion}" 
 
 }
 
@@ -42,7 +42,7 @@ chromeTest{
 }
 
 test{
-  dependsOn drivers.collect{  task["${it}Test"] }
+  dependsOn drivers.collect{  tasks["${it}Test"] }
   enabled = false
 }
 
